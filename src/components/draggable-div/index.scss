@@ -1,0 +1,21 @@
+#draggable-div {
+  width: 100vw;
+  height: 100%;
+  background-color: whitesmoke;
+
+  .content {
+    padding: 1rem 4rem;
+  }
+
+  .text-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 2rem;
+  }
+
+  .text-area {
+    width: 50rem;
+  }
+}
