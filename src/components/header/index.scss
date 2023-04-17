@@ -1,11 +1,13 @@
 #header {
   all: unset;
+  display: block;
   font-size: 2rem;
   position: relative;
-  width: 100vw;
+  width: 100vw !important;
   color: whitesmoke;
+  margin-bottom: 2rem;
   background-color: black;
   padding: 1rem 2rem;
+  height: 3rem;
   font-weight: bold;
-  margin-bottom: 2rem;
 }

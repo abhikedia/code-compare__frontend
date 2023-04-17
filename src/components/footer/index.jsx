@@ -2,7 +2,7 @@ import React from "react";
 import { Tabs, Textarea, Button } from "@mantine/core";
 import "./index.scss";
 
-const DraggableDiv = () => {
+const Footer = () => {
   return (
     <div id="draggable-div">
       <Tabs defaultValue="testcase">
@@ -16,11 +16,10 @@ const DraggableDiv = () => {
             <Textarea
               placeholder="Give your testcase here..."
               autosize
-              minRows={10}
               className="text-area"
-              radius="lg"
+              radius="md"
             />
-            <Button size="md" radius="md">
+            <Button size="sm" radius="md">
               Submit
             </Button>
           </Tabs.Panel>
@@ -34,4 +33,4 @@ const DraggableDiv = () => {
   );
 };
 
-export default DraggableDiv;
+export default Footer;
