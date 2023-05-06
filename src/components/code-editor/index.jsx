@@ -3,7 +3,7 @@ import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-monokai";
 
-const CodeEditor = ({ cppCode, setCppCode }) => {
+const CodeEditor = ({ code, setCode }) => {
   return (
     <AceEditor
       width="100%"
@@ -11,8 +11,8 @@ const CodeEditor = ({ cppCode, setCppCode }) => {
       mode="c_cpp"
       theme="monokai"
       fontSize={20}
-      value={cppCode}
-      onChange={setCppCode}
+      value={code}
+      onChange={setCode}
       name="cpp-editor"
       editorProps={{ $blockScrolling: true }}
       setOptions={{
