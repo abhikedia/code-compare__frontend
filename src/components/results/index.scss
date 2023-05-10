@@ -1,0 +1,15 @@
+#results {
+  display: flex;
+  column-gap: 2rem;
+  padding: 1rem;
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .result_ {
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+  }
+}

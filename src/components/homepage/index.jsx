@@ -5,7 +5,8 @@ import Split from "react-split";
 import Header from "../header";
 import "./index.scss";
 import bufferToString from "../../utils/buffer-to-string";
-import { Modal } from "@mantine/core";
+import { LoadingOverlay, Modal } from "@mantine/core";
+import Results from "../results";
 
 let lang1 = "cpp",
   lang2 = "cpp";
@@ -16,6 +17,7 @@ const Homepage = () => {
   const [result1, setResult1] = useState({});
   const [result2, setResult2] = useState({});
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const inputRef = useRef();
 
@@ -31,6 +33,7 @@ const Homepage = () => {
   };
 
   const onSubmit = async () => {
+    setLoading(true);
     const code_1 = {
       language: lang1,
       code: code1,
@@ -40,7 +43,7 @@ const Homepage = () => {
       code: code2,
     };
 
-    fetch("http://localhost:4000/api/v1/code", {
+    fetch("http://3.6.231.178:4000/api/v1/code", {
       method: "POST",
       mode: "cors",
       headers: {
@@ -65,24 +68,23 @@ const Homepage = () => {
         });
       })
       .then(() => setShowModal(true))
-      .catch((e) => console.log(e));
+      .catch((e) => console.log(e))
+      .finally(() => setLoading(false));
   };
 
   return (
     <>
       <Header />
-      <Modal centered opened={showModal} onClose={() => setShowModal(false)}>
-        <div>
-          <div>Compilation Output</div>
-          <div>
-            <div>
-              {result1.output}
-              <br />
-              {result1.time}
-            </div>
-          </div>
-        </div>
+      <Modal
+        centered
+        size={"xl"}
+        opened={showModal}
+        onClose={() => setShowModal(false)}
+      >
+        <div className="bold-header">Compilation Output</div>
+        <Results result1={result1} result2={result2} />
       </Modal>
+      <LoadingOverlay visible={loading} overlayBlur={2} />
       <Split
         style={{ height: "calc(100vh - 3rem)" }}
         direction="vertical"
@@ -109,7 +111,12 @@ const Homepage = () => {
           </div>
         </div>
 
-        <Footer onSubmit={onSubmit} inputRef={inputRef} />
+        <Footer
+          onSubmit={onSubmit}
+          inputRef={inputRef}
+          result1={result1}
+          result2={result2}
+        />
       </Split>
     </>
   );

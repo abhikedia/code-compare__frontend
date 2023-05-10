@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Tabs, Textarea, Button } from "@mantine/core";
+import Results from "../results";
 import "./index.scss";
 
-const Footer = ({ onSubmit, inputRef }) => {
+const Footer = ({ onSubmit, inputRef, result1, result2 }) => {
   const [activeTab, setActiveTab] = useState("testcase");
 
   return (
@@ -18,17 +19,15 @@ const Footer = ({ onSubmit, inputRef }) => {
             <Textarea
               ref={inputRef}
               placeholder="Give your testcase here..."
-              // autosize
-              // minRows={4}
               className="text-area"
               radius="md"
             />
-            <Button size="sm" radius="md" onClick={onSubmit}>
+            <Button size="md" radius="md" onClick={onSubmit}>
               Submit
             </Button>
           </div>
         ) : (
-          <div></div>
+          <Results result1={result1} result2={result2} />
         )}
       </div>
     </Tabs>
