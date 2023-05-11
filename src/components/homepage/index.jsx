@@ -3,10 +3,11 @@ import CodeEditor from "../code-editor";
 import Footer from "../footer";
 import Split from "react-split";
 import Header from "../header";
-import "./index.scss";
 import bufferToString from "../../utils/buffer-to-string";
 import { LoadingOverlay, Modal } from "@mantine/core";
 import Results from "../results";
+import { Analytics } from "@vercel/analytics/react";
+import "./index.scss";
 
 let lang1 = "cpp",
   lang2 = "cpp";
@@ -74,6 +75,7 @@ const Homepage = () => {
 
   return (
     <>
+      <Analytics />
       <Header />
       <Modal
         centered
