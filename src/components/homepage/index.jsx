@@ -44,12 +44,12 @@ const Homepage = () => {
       code: code2,
     };
 
-    fetch("http://3.6.231.178:4000/api/v1/code", {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    fetch("https://3.6.231.178/api/v1/code", {
       method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: myHeaders,
       body: JSON.stringify({
         code1: code_1,
         code2: code_2,
