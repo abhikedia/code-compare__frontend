@@ -47,7 +47,7 @@ const Homepage = () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    fetch("https://3.6.231.178/api/v1/code", {
+    fetch("http://localhost:4000/api/v1/code", {
       method: "POST",
       headers: myHeaders,
       body: JSON.stringify({
@@ -58,6 +58,7 @@ const Homepage = () => {
     })
       .then((res) => res.json())
       .then((res) => {
+        console.log(bufferToString(res.data.code1.time))
         setResult1({
           output: bufferToString(res.data.code1.output),
           time: bufferToString(res.data.code1.time),

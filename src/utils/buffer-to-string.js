@@ -1,9 +1,18 @@
 import { Buffer } from "buffer";
 
-const bufferToString = (bufferData) => {
-  const buffer = Buffer.from(bufferData.data);
-  // eslint-disable-next-line no-control-regex
-  const readableString = buffer.toString("utf-8").replace(/[\x00-\x1F]/g, "");
+const bufferToString = (inputString) => {
+  console.log("in", inputString)
+  inputString = inputString.trim();
+
+  // Split the input string into an array of hexadecimal values
+  const hexValues = inputString.split('\\x').filter(Boolean);
+
+  // Convert hexadecimal values to decimal
+  const decimalValues = hexValues.map((hex) => parseInt(hex, 16));
+
+  // Convert decimal values to ASCII characters
+  const readableString = String.fromCharCode(...decimalValues);
+
   return readableString;
 };
 
