@@ -12,6 +12,13 @@ import "./index.scss";
 let lang1 = "cpp",
   lang2 = "cpp";
 
+const options = [
+  { lang: "c", name: "C" },
+  { lang: "cpp", name: "C++" },
+  { lang: "py", name: "Python" },
+  // { lang: "java", name: "Java" },
+];
+
 const Homepage = () => {
   const [code1, setCode1] = useState("");
   const [code2, setCode2] = useState("");
@@ -96,17 +103,25 @@ const Homepage = () => {
       >
         <div id="code-editor-container">
           <div className="code-editor">
-            <select onChange={(e) => (lang1 = e.target.value)}>
-              <option value="cpp">C++</option>
-              <option value="python">Python</option>
+            <select
+              onChange={(e) => (lang1 = e.target.value)}
+              defaultValue="cpp"
+            >
+              {options.map((option) => (
+                <option value={option.lang}>{option.name}</option>
+              ))}
             </select>
             <CodeEditor code={code1} setCode={setCode1} />
             <input type="file" onChange={(e) => handleFileSelect(e, "code1")} />
           </div>
           <div className="code-editor">
-            <select onChange={(e) => (lang2 = e.target.value)}>
-              <option value="cpp">C++</option>
-              <option value="python">Python</option>
+            <select
+              onChange={(e) => (lang2 = e.target.value)}
+              defaultValue="cpp"
+            >
+              {options.map((option) => (
+                <option value={option.lang}>{option.name}</option>
+              ))}
             </select>
             <CodeEditor code={code2} setCode={setCode2} />
             <input type="file" onChange={(e) => handleFileSelect(e, "code2")} />
