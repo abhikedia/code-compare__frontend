@@ -58,7 +58,6 @@ const Homepage = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(bufferToString(res.data.code1.time))
         setResult1({
           output: bufferToString(res.data.code1.output),
           time: bufferToString(res.data.code1.time),
@@ -92,7 +91,7 @@ const Homepage = () => {
         style={{ height: "calc(100vh - 3rem)" }}
         direction="vertical"
         sizes={[75, 25]}
-        cursor="col-resize"
+        cursor="row-resize"
         gutterAlign="center"
       >
         <div id="code-editor-container">

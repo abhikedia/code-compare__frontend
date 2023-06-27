@@ -10,7 +10,7 @@ const CodeEditor = ({ code, setCode }) => {
       height="100%"
       mode="c_cpp"
       theme="monokai"
-      fontSize={20}
+      fontSize={15}
       value={code}
       onChange={setCode}
       name="cpp-editor"

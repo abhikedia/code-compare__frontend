@@ -1,19 +1,14 @@
-import { Buffer } from "buffer";
+const bufferToString = (input) => {
+  // Remove the initial '\x01\x00\x00\x00\x00\x00\x00 ' part
+  const cleanedInput = input.replace(/^\x01\x00\x00\x00\x00\x00\x00 /, "");
 
-const bufferToString = (inputString) => {
-  console.log("in", inputString)
-  inputString = inputString.trim();
+  // Convert hexadecimal escape sequences to characters
+  const convertedString = cleanedInput.replace(
+    /\\x([0-9A-Fa-f]{2})/g,
+    (_, hex) => String.fromCharCode(parseInt(hex, 16))
+  );
 
-  // Split the input string into an array of hexadecimal values
-  const hexValues = inputString.split('\\x').filter(Boolean);
-
-  // Convert hexadecimal values to decimal
-  const decimalValues = hexValues.map((hex) => parseInt(hex, 16));
-
-  // Convert decimal values to ASCII characters
-  const readableString = String.fromCharCode(...decimalValues);
-
-  return readableString;
+  return convertedString;
 };
 
 export default bufferToString;

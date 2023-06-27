@@ -1,13 +1,28 @@
 #header {
-  all: unset;
-  display: block;
-  font-size: 2rem;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100vw !important;
-  color: whitesmoke;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   background-color: black;
-  padding: 1rem 2rem;
-  height: 3rem;
-  font-weight: bold;
+  color: whitesmoke;
+  padding: 0.7rem 10rem;
+
+  .header-text {
+    all: unset;
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  a {
+    all: unset;
+  }
+
+  .icons {
+    display: flex;
+    column-gap: 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+  }
 }
