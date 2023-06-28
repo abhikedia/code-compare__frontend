@@ -54,7 +54,7 @@ const Homepage = () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    fetch("http://localhost:4000/api/v1/code", {
+    fetch("https://3.6.231.178/api/v1/code", {
       method: "POST",
       headers: myHeaders,
       body: JSON.stringify({
