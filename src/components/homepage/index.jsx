@@ -3,14 +3,10 @@ import CodeEditor from "../code-editor";
 import Footer from "../footer";
 import Split from "react-split";
 import Header from "../header";
-import bufferToString from "../../utils/buffer-to-string";
 import { LoadingOverlay, Modal } from "@mantine/core";
 import Results from "../results";
 import { Analytics } from "@vercel/analytics/react";
 import "./index.scss";
-
-let lang1 = "cpp",
-  lang2 = "cpp";
 
 const options = [
   { lang: "c", name: "C" },
@@ -22,6 +18,8 @@ const options = [
 const Homepage = () => {
   const [code1, setCode1] = useState("");
   const [code2, setCode2] = useState("");
+  const [lang1, setLang1] = useState("cpp");
+  const [lang2, setLang2] = useState("cpp");
   const [result1, setResult1] = useState({});
   const [result2, setResult2] = useState({});
   const [showModal, setShowModal] = useState(false);
@@ -66,13 +64,13 @@ const Homepage = () => {
       .then((res) => res.json())
       .then((res) => {
         setResult1({
-          output: bufferToString(res.data.code1.output),
-          time: bufferToString(res.data.code1.time),
+          output: res.data.code1.output,
+          time: res.data.code1.time,
         });
 
         setResult2({
-          output: bufferToString(res.data.code2.output),
-          time: bufferToString(res.data.code2.time),
+          output: res.data.code2.output,
+          time: res.data.code2.time,
         });
       })
       .then(() => setShowModal(true))
@@ -104,7 +102,7 @@ const Homepage = () => {
         <div id="code-editor-container">
           <div className="code-editor">
             <select
-              onChange={(e) => (lang1 = e.target.value)}
+              onChange={(e) => setLang1(e.target.value)}
               defaultValue="cpp"
             >
               {options.map((option) => (
@@ -116,7 +114,7 @@ const Homepage = () => {
           </div>
           <div className="code-editor">
             <select
-              onChange={(e) => (lang2 = e.target.value)}
+              onChange={(e) => setLang2(e.target.value)}
               defaultValue="cpp"
             >
               {options.map((option) => (

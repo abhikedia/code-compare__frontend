@@ -1,25 +1,6 @@
 import React from "react";
 import "./index.scss";
 
-function convertTimeOutput(data) {
-  const regex = /(\w+)\s(\d+m\d+\.\d+s)/g;
-  let matches;
-  let result = [];
-
-  while ((matches = regex.exec(data)) !== null) {
-    const text = matches[1];
-    const value = matches[2];
-    result.push(
-      <React.Fragment key={text}>
-        {text}: {value}
-        <br />
-      </React.Fragment>
-    );
-  }
-
-  return result;
-}
-
 const Results = ({ result1, result2 }) => {
   return (
     <div id="results">
@@ -27,19 +8,17 @@ const Results = ({ result1, result2 }) => {
         <>
           <div className="result_">
             <span className="bold">Code 1</span>
-            {result1.output}
-            <br />
+            <pre>{result1.output}</pre>
             <br />
             <span className="bold">Time</span>
-            {convertTimeOutput(result1.time)}
+            <pre>{result1.time}</pre>
           </div>
           <div className="result_">
             <span className="bold">Code 2</span>
-            {result2.output}
-            <br />
+            <pre>{result2.output}</pre>
             <br />
             <span className="bold">Time</span>
-            {convertTimeOutput(result2.time)}
+            <pre>{result2.time}</pre>
           </div>
         </>
       ) : (
