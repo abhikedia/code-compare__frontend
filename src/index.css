@@ -13,3 +13,19 @@ body {
 .gutter.gutter-vertical {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=");
 }
+
+#message {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  #root {
+    display: none;
+  }
+
+  #message {
+    display: block;
+    width: 15rem;
+    padding: 1rem;
+  }
+}
