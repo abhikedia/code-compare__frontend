@@ -62,3 +62,11 @@
   font-size: 1.5rem;
   font-weight: bold;
 }
+
+@media (max-width: 767px) {
+  #code-editor-container {
+    flex-direction: column;
+    row-gap: 1rem;
+    padding: 0 0.5rem;
+  }
+}

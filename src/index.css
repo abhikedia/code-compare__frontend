@@ -19,13 +19,7 @@ body {
 }
 
 @media (max-width: 767px) {
-  #root {
-    display: none;
-  }
-
-  #message {
-    display: block;
-    width: 15rem;
-    padding: 1rem;
+  body {
+    overflow-y: scroll;
   }
 }

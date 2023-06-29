@@ -26,3 +26,13 @@
     font-weight: 600;
   }
 }
+
+@media (max-width: 767px) {
+  #header {
+    padding: 1rem;
+
+    .icons {
+      column-gap: 0.5rem;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CodeEditor from "../code-editor";
 import Footer from "../footer";
 import Split from "react-split";
@@ -24,6 +24,11 @@ const Homepage = () => {
   const [result2, setResult2] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+  }, []);
 
   const inputRef = useRef();
 
@@ -93,7 +98,7 @@ const Homepage = () => {
       </Modal>
       <LoadingOverlay visible={loading} overlayBlur={2} />
       <Split
-        style={{ height: "calc(100vh - 3rem)" }}
+        style={{ height: width < 767 ? "140vh" : "calc(100vh - 3rem)" }}
         direction="vertical"
         sizes={[75, 25]}
         cursor="row-resize"

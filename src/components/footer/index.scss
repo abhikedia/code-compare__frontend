@@ -36,3 +36,10 @@
 .mantine-Textarea-input {
   height: 100%;
 }
+
+@media (max-width: 767px) {
+  #draggable-div {
+    padding: 1rem;
+    padding-bottom: 0;
+  }
+}
